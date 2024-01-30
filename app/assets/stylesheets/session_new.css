@@ -8,41 +8,41 @@
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     background-color: #fff;
-  }
+}
   
-  .devise-title {
+.devise-title {
     color: #333;
     font-size: 24px;
     margin-bottom: 20px;
-  }
+}
   
-  .devise-field {
+.devise-field {
     margin-bottom: 15px;
-  }
+}
   
-  .devise-field label {
+.devise-field label {
     display: block;
     font-weight: bold;
     margin-bottom: 5px;
-  }
+}
   
-  .devise-field input {
+.devise-field input {
     width: 100%;
     padding: 8px;
     box-sizing: border-box;
     border: 1px solid #ccc;
     border-radius: 3px;
-  }
+}
   
-  .devise-field input[type="checkbox"] {
+.devise-field input[type="checkbox"] {
     margin-right: 5px;
-  }
+}
   
-  .devise-actions {
+.devise-actions {
     margin-top: 20px;
-  }
+}
   
-  .devise-submit-btn {
+.devise-submit-btn {
     background-color: #4285f4;
     color: #fff;
     padding: 10px;
@@ -50,5 +50,5 @@
     border-radius: 3px;
     cursor: pointer;
     font-size: 16px;
-  }
+}
   
