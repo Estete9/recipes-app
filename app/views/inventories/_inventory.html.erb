@@ -1,9 +1,9 @@
 <div id="<%= dom_id inventory %>">
-  <div>
-    <p>
-      <strong><%= inventory.name %></strong>
-    </p>
-    <p>HERE GOES DELETE</p>
-  </div>
+    <div>
+      <p>
+        <strong><%= inventory.name %></strong>
+      </p>
+      <%= link_to "Remove", inventory_path(inventory.id), data: { confirm: 'Are you sure?', turbo_method: :delete }, class: "btn btn-danger" %>
+    </div>
     <p><%= inventory.description %></p>
 </div>
