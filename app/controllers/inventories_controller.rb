@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class InventoriesController < ApplicationController
   before_action :set_inventory, only: %i[show destroy]
 
