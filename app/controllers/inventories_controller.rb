@@ -1,9 +1,9 @@
 class InventoriesController < ApplicationController
-  before_action :set_inventory, only: %i[ show edit update destroy ]
+  before_action :set_inventory, only: %i[ show destroy ]
 
   # GET /inventories or /inventories.json
   def index
-    @inventories = Inventory.all
+    @inventories = Inventory.where(user_id: current_user.id)
   end
 
   # GET /inventories/1 or /inventories/1.json
@@ -15,13 +15,9 @@ class InventoriesController < ApplicationController
     @inventory = Inventory.new
   end
 
-  # GET /inventories/1/edit
-  def edit
-  end
-
   # POST /inventories or /inventories.json
   def create
-    @inventory = Inventory.new(inventory_params)
+    @inventory = Inventory.new(inventory_params.merge(user: current_user))
 
     respond_to do |format|
       if @inventory.save
@@ -29,19 +25,6 @@ class InventoriesController < ApplicationController
         format.json { render :show, status: :created, location: @inventory }
       else
         format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @inventory.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # PATCH/PUT /inventories/1 or /inventories/1.json
-  def update
-    respond_to do |format|
-      if @inventory.update(inventory_params)
-        format.html { redirect_to inventory_url(@inventory), notice: "Inventory was successfully updated." }
-        format.json { render :show, status: :ok, location: @inventory }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @inventory.errors, status: :unprocessable_entity }
       end
     end
@@ -65,6 +48,6 @@ class InventoriesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def inventory_params
-      params.require(:inventory).permit(:name, :user_id)
+      params.require(:inventory).permit(:name)
     end
 end
