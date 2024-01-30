@@ -9,23 +9,23 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     background-color: #fff;
 }
-  
+
 .devise-title {
     color: #333;
     font-size: 24px;
     margin-bottom: 20px;
 }
-  
+
 .devise-field {
     margin-bottom: 15px;
 }
-  
+
 .devise-field label {
     display: block;
     font-weight: bold;
     margin-bottom: 5px;
 }
-  
+
 .devise-field input {
     width: 100%;
     padding: 8px;
@@ -33,15 +33,15 @@
     border: 1px solid #ccc;
     border-radius: 3px;
 }
-  
+
 .devise-field input[type="checkbox"] {
     margin-right: 5px;
 }
-  
+
 .devise-actions {
     margin-top: 20px;
 }
-  
+
 .devise-submit-btn {
     background-color: #4285f4;
     color: #fff;
@@ -51,4 +51,3 @@
     cursor: pointer;
     font-size: 16px;
 }
-  
