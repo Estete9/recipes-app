@@ -33,3 +33,6 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+
+# Ignore database.yml to avoid changing username and passwrods on each local repo
+/config/database.yml

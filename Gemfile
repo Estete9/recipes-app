@@ -51,6 +51,9 @@ gem 'bootsnap', require: false
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'debug', platforms: %i[mri windows]
+
+  gem 'rspec-rails'
+  gem 'faker'
 end
 
 group :development do
@@ -69,3 +72,8 @@ group :test do
   gem 'capybara'
   gem 'selenium-webdriver'
 end
+
+gem 'pry'
+gem 'cancancan'
+gem 'bootstrap'
+gem 'sassc-rails'
