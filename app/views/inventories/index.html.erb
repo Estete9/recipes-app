@@ -1,12 +1,12 @@
 
-<h1>Inventories</h1>
+<div class="p-5">
+  <strong><%= link_to "New inventory", new_inventory_path, class: "btn btn-primary mx-5 mb-4" %></strong>
 
-<div id="inventories">
-  <% @inventories.each do |inventory| %>
-    <%= link_to inventory_path(inventory.id) do %>
-      <%= render inventory %>
+  <div id="inventories">
+    <% @inventories.each do |inventory| %>
+      <%= link_to inventory_path(inventory.id) do %>
+        <%= render inventory %>
+      <% end %>
     <% end %>
-  <% end %>
+  </div>
 </div>
-
-<strong><%= link_to "New inventory", new_inventory_path %></strong>
