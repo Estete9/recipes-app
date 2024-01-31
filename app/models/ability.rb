@@ -9,6 +9,13 @@ class Ability
     can :create, [Inventory]
     can :read, [Inventory]
     can :destroy, [Inventory], user_id: user.id
+
+    can :update, Recipe, user_id: user.id
+    can :destroy, Recipe, user_id: user.id
+    can :read, Recipe do |recipe|
+      user.id == recipe.user_id || recipe.public?
+    end
+    
     # Define abilities for the user here. For example:
     #
     #   return unless user.present?
