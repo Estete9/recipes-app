@@ -1,5 +1,20 @@
-<%= render @inventory %>
+<div class="container mt-4">
+  <h1 class="mb-4">Inventory Details</h1>
 
-<div>
-  <%= link_to "Back to inventories", inventories_path %>
+  <%= link_to 'Add Food to Inventory', new_food_path(inventory_id: @inventory.id), class: 'btn btn-primary mb-4' %>
+
+  <h2 class="mb-3">Foods in this Inventory</h2>
+  <% if @inventory.foods.present? %>
+    <ul class="list-group">
+      <% @inventory.foods.each do |food| %>
+        <li class="list-group-item">
+          <%= link_to food.name, detailed_food_food_path(food), class: 'btn btn-secondary' %>
+        </li>
+      <% end %>
+    </ul>
+  <% else %>
+    <p class="mt-3">No foods in this inventory.</p>
+  <% end %>
+
+  <%= link_to 'Back to Inventories', inventories_path, class: 'btn btn-light mt-4' %>
 </div>

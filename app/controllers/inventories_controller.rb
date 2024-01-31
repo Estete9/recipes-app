@@ -3,7 +3,7 @@ class InventoriesController < ApplicationController
 
   # GET /inventories or /inventories.json
   def index
-    @inventories = Inventory.where(user_id: current_user.id)
+    @inventories = Inventory.where(user_id: current_user.id).includes(:foods)
   end
 
   # GET /inventories/1 or /inventories/1.json
@@ -42,12 +42,15 @@ class InventoriesController < ApplicationController
   private
 
   # Use callbacks to share common setup or constraints between actions.
-  def set_inventory
-    @inventory = Inventory.find(params[:id])
-  end
+ # app/controllers/inventories_controller.rb
+def set_inventory
+  @inventory = Inventory.includes(foods: :user).find(params[:id])
+  puts "Foods in inventory: #{@inventory.foods.inspect}"
+end
+
 
   # Only allow a list of trusted parameters through.
   def inventory_params
-    params.require(:inventory).permit(:name, :description)
+    params.require(:inventory).permit(:name, :description, food_ids: [])
   end
 end

@@ -8,4 +8,10 @@ Rails.application.routes.draw do
   get '/foods', to: 'foods#index'
   get '/foods/new', to: 'foods#new', as: 'new_food'
   resources :foods, only: [:create,:destroy]
+  resources :foods do
+    member do
+      get 'detailed_food'
+    end
+  end
+
 end

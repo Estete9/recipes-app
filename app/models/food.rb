@@ -1,7 +1,5 @@
 class Food < ApplicationRecord
   belongs_to :user
-  def name_with_measurement_unit
-    "#{name} (#{measurement_unit})"
-  end
+  has_and_belongs_to_many :inventories
   validates :quantity, presence: true
 end

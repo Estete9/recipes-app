@@ -1,12 +1,16 @@
+<div class="container mt-4">
+  <h1 class="mb-4">All Inventories</h1>
 
-<h1>Inventories</h1>
-
-<div id="inventories">
   <% @inventories.each do |inventory| %>
-    <%= link_to inventory_path(inventory.id) do %>
-      <%= render inventory %>
-    <% end %>
-  <% end %>
-</div>
+    <div class="card mb-3">
+      <div class="card-body">
+        <h5 class="card-title"><%= inventory.name %></h5>
+        <p class="card-text"><%= inventory.description %></p>
 
-<strong><%= link_to "New inventory", new_inventory_path %></strong>
+        <%= link_to 'Show Details', inventory_path(inventory), class: 'btn btn-primary' %>
+      </div>
+    </div>
+  <% end %>
+
+  <%= link_to 'New Inventory', new_inventory_path, class: 'btn btn-success' %>
+</div>
