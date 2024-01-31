@@ -9,3 +9,32 @@
     </div>
     <p><%= inventory.description %></p>
 </div>
+
+<% if action_name == 'show' %>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Food</th>
+        <th>Quantity</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Apple</td>
+        <td>10 grams</td>
+        <td><button type="button" class="btn btn-danger">Remove</button></td>
+      </tr>
+      <tr>
+        <td>Pineapple</td>
+        <td>7 grams</td>
+        <td><button type="button" class="btn btn-danger">Remove</button></td>
+      </tr>
+      <tr>
+        <td>Chicken breasts</td>
+        <td>25 units</td>
+        <td><button type="button" class="btn btn-danger">Remove</button></td>
+      </tr>
+    </tbody>
+  </table>
+<% end %>
