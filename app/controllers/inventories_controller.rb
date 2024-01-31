@@ -42,12 +42,11 @@ class InventoriesController < ApplicationController
   private
 
   # Use callbacks to share common setup or constraints between actions.
- # app/controllers/inventories_controller.rb
-def set_inventory
-  @inventory = Inventory.includes(foods: :user).find(params[:id])
-  puts "Foods in inventory: #{@inventory.foods.inspect}"
-end
-
+  # app/controllers/inventories_controller.rb
+  def set_inventory
+    @inventory = Inventory.includes(foods: :user).find(params[:id])
+    puts "Foods in inventory: #{@inventory.foods.inspect}"
+  end
 
   # Only allow a list of trusted parameters through.
   def inventory_params

@@ -54,6 +54,4 @@ class FoodsController < ApplicationController
     inventory.foods << @food
     redirect_to inventory_path(inventory)
   end
-
-
 end
