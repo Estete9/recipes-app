@@ -15,6 +15,8 @@ class Ability
     can :read, Recipe do |recipe|
       user.id == recipe.user_id || recipe.public?
     end
+
+    can :create_food, Recipe, user_id: user.id
     
     # Define abilities for the user here. For example:
     #
