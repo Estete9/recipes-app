@@ -34,3 +34,7 @@
 # Ignore master key for decrypting credentials and more.
 /config/master.key
 
+# Ignore database.yml so the username and password for databases remain personal
+/config/database.yml
+
+
