@@ -75,6 +75,6 @@ end
 
 gem 'bootstrap'
 gem 'cancancan'
-gem 'pry'
 gem 'jquery-rails'
+gem 'pry'
 gem 'sassc-rails'
