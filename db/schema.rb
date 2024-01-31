@@ -29,7 +29,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_31_101234) do
     t.string "measurement_unit"
     t.integer "price"
     t.bigint "user_id", null: false
-    t.integer "quantity"
     t.index ["user_id"], name: "index_foods_on_user_id"
   end
 
