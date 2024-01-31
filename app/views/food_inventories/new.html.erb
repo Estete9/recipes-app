@@ -1,0 +1,25 @@
+<div style="max-width: 400px; margin: 0 auto;" class="mb-3">
+  <h1 id="form-title" class="text-center text-muted m-2">Add new Food to Inventory</h1>
+  <%= form_with(model: [@food_inventory], url: food_inventories_path) do |form| %>
+    <div class="justify-content-center gap-2">
+      <div class="col-md-4">
+        <%= form.hidden_field :inventory_id, value: @inventory_id %>
+      </div>
+      <div class="col-md-7">
+        <div class="mb-3">
+          <%= form.label :name, class: "form-label" %>
+          <%= form.collection_select(:food_id, current_user.foods, :id, :name, { prompt: "Select a Food" }, { class: "form-select" }) %>
+        </div>
+      </div>
+      <div class="col-md-5">
+        <div class="mb-3">
+          <%= form.label :quantity, class: "form-label" %>
+          <%= form.number_field :quantity, autofocus: true, autocomplete: "quantity", placeholder: "Quantity", class: "form-control" %>
+        </div>
+      </div>
+      <div class="col-md-4 text-center">
+        <%= form.submit 'Add Food to Inventory', class: "btn btn-primary mt-3" %>
+      </div>
+    </div>
+  <% end %>
+</div>
