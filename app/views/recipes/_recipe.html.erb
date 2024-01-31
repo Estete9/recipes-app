@@ -20,8 +20,14 @@
   </p>
 
   <p>
-    <strong>Public:</strong>
-    <%= recipe.public %>
+    <%= form_for @recipe, url: recipe_path(@recipe), method: :patch do |f| %>
+      <%= f.submit '' do %>
+        <div class="form-group">
+          <%= f.label :public, class: 'form-check-label' %>
+          <%= f.check_box :public, class: 'form-check-input', data: { size: 'small' } %>
+        </div>
+      <% end %>
+    <% end %>
   </p>
 
   <p>
