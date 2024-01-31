@@ -5,4 +5,7 @@ Rails.application.routes.draw do
   resources :recipes
   devise_for :users
   root 'home#index'
+  get '/foods', to: 'foods#index'
+  get '/foods/new', to: 'foods#new', as: 'new_food'
+  resources :foods, only: [:create,:destroy]
 end
