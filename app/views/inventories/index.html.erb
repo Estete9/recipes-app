@@ -1,0 +1,12 @@
+
+<h1>Inventories</h1>
+
+<div id="inventories">
+  <% @inventories.each do |inventory| %>
+    <%= link_to inventory_path(inventory.id) do %>
+      <%= render inventory %>
+    <% end %>
+  <% end %>
+</div>
+
+<strong><%= link_to "New inventory", new_inventory_path %></strong>

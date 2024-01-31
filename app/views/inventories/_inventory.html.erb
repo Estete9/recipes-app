@@ -1,0 +1,11 @@
+<div id="<%= dom_id inventory %>">
+    <div>
+      <p>
+        <strong><%= inventory.name %></strong>
+      </p>
+      <%if action_name == 'index' && can?(:destroy, inventory) %>
+        <%= link_to "Remove", inventory_path(inventory.id), data: { confirm: 'Are you sure?', turbo_method: :delete }, class: "btn btn-danger" %>
+      <% end %>
+    </div>
+    <p><%= inventory.description %></p>
+</div>
