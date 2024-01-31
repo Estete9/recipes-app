@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema[7.1].define(version: 2024_01_31_101233) do
 ActiveRecord::Schema[7.1].define(version: 2024_01_31_152525) do
-ActiveRecord::Schema[7.1].define(version: 2024_01_31_152525) do
+ActiveRecord::Schema[7.1].define(version: 2024_01_31_101234) do
   # These are extensions that must be enabled in order to support this database
   enable_extension 'plpgsql'
 
@@ -42,6 +42,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_31_152525) do
 
   add_foreign_key "foods", "users"
   add_foreign_key "inventories", "users"
+  add_foreign_key "food_inventories", "foods", on_delete: :cascade
+  add_foreign_key "food_inventories", "inventories", on_delete: :cascade
   add_foreign_key "foods", "users"
   add_foreign_key "inventories", "users"
   add_foreign_key "recipes", "users"

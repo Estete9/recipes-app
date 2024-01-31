@@ -7,7 +7,9 @@ class InventoriesController < ApplicationController
   end
 
   # GET /inventories/1 or /inventories/1.json
-  def show; end
+  def show
+    @food_inventories = FoodInventory.where(inventory_id: params[:id])
+  end
 
   # GET /inventories/new
   def new
