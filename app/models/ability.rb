@@ -17,7 +17,7 @@ class Ability
     end
 
     can :create_food, Recipe, user_id: user.id
-    
+
     # Define abilities for the user here. For example:
     #
     #   return unless user.present?
