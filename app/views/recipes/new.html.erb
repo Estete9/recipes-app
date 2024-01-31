@@ -1,0 +1,9 @@
+<h1 class="text-center text-secondary mb-4">New Recipe</h1>
+
+<%= render "form", recipe: @recipe %>
+
+<br>
+
+<div class="d-flex align-items-center justify-content-center">
+  <%= link_to "Back to recipes", recipes_path, :class => "btn btn-outline-danger rounded-5 px-4 my-3" %>
+</div>
