@@ -16,7 +16,7 @@
             <%= select_tag 'user_id', options_for_select(@inventories.collect{ |i| [i.name, i.id] }), { prompt: "Select an Inventory" } %>
 
             <!-- Submit button -->
-            <%= submit_tag 'Generate', disabled: true %>
+            <%= submit_tag 'Generate' %>
           <% end %>
       </div>
     </div>

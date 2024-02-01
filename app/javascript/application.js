@@ -15,7 +15,6 @@ const popUpModal = () => {
   modal.show()
 
   headClose.addEventListener('click', () => modal.hide())
-  footerClose.addEventListener('click', () => modal.hide())
 }
 
 document.addEventListener("turbo:load", () => {
