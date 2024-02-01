@@ -11,6 +11,7 @@
     </div>
   <% end %>
 
+  <%= form.hidden_field :recipe_id, value: params[:recipe_id] %>
   <div>
     <%= form.label :quantity, style: "display: block" %>
     <%= form.number_field :quantity, min: 1 %>
