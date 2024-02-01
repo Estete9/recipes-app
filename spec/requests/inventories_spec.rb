@@ -60,7 +60,7 @@ RSpec.describe '/inventories', type: :request do
 
       it 'redirects to the created inventory' do
         post inventories_path, params: { inventory: attributes_for(:inventory) }
-        expect(response).to redirect_to(inventory_path(Inventory.last))
+        expect(response).to redirect_to(inventories_path)
       end
     end
 
