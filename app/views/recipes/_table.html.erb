@@ -13,8 +13,8 @@
       <tr>
         <th scope="row"><%= index %></th>
         <td><%= food_recipe.food.name %></td>
-        <td><%= food_recipe.quantity %></td>
-        <td><%= food_recipe.quantity * food_recipe.food.price %></td>
+        <td><%= food_recipe.food.name_with_measurement_unit %></td>
+        <td>$<%= food_recipe.quantity * food_recipe.food.price %></td>
         <td>
           <% if can? :update, food_recipe %>
             <button type="button">Modify</button>
