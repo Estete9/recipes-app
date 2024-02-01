@@ -1,5 +1,5 @@
 class FoodRecipesController < ApplicationController
-  before_action :set_food_recipe, only: %i[ destroy ]
+  before_action :set_food_recipe, only: %i[destroy]
 
   # GET /food_recipes or /food_recipes.json
   # def index
@@ -26,7 +26,9 @@ class FoodRecipesController < ApplicationController
 
     respond_to do |format|
       if @food_recipe.save
-        format.html { redirect_to recipe_path(id: @food_recipe.recipe_id), notice: "Food recipe was successfully created." }
+        format.html do
+          redirect_to recipe_path(id: @food_recipe.recipe_id), notice: 'Food recipe was successfully created.'
+        end
         format.json { render :show, status: :created, location: @food_recipe }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -53,19 +55,20 @@ class FoodRecipesController < ApplicationController
     @food_recipe.destroy!
 
     respond_to do |format|
-      format.html { redirect_to food_recipes_url, notice: "Food recipe was successfully destroyed." }
+      format.html { redirect_to food_recipes_url, notice: 'Food recipe was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_food_recipe
-      @food_recipe = FoodRecipe.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def food_recipe_params
-      params.require(:food_recipe).permit(:quantity, :food_id, :recipe_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_food_recipe
+    @food_recipe = FoodRecipe.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def food_recipe_params
+    params.require(:food_recipe).permit(:quantity, :food_id, :recipe_id)
+  end
 end
