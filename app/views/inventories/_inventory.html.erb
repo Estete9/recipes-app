@@ -1,6 +1,6 @@
 <div id="<%= dom_id inventory %>" class="d-flex inventory-item border rounded p-3 mb-3">
-    <div class="d-flex flex-column justify-content-between">
-      <h3 class="mb-5">
+    <div class="d-flex flex-column justify-content-between col-md-2">
+      <h3 class="mb-5 text-center">
         <strong><%= inventory.name %></strong>
       </h3>
       <%if action_name == 'index' && can?(:destroy, inventory) %>
