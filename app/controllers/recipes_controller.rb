@@ -1,5 +1,5 @@
 class RecipesController < ApplicationController
-  before_action :set_recipe, only: %i[show edit update destroy]
+  before_action :set_recipe, only: %i[show update destroy]
   before_action :authenticate_user!
 
   # GET /recipes or /recipes.json
@@ -8,7 +8,9 @@ class RecipesController < ApplicationController
   end
 
   # GET /recipes/1 or /recipes/1.json
-  def show; end
+  def show
+    @food_recipes = FoodRecipe.where(recipe_id: params[:id])
+  end
 
   # GET /recipes/new
   def new
@@ -16,7 +18,7 @@ class RecipesController < ApplicationController
   end
 
   # GET /recipes/1/edit
-  def edit; end
+  # def edit; end
 
   # POST /recipes or /recipes.json
   def create
@@ -38,11 +40,11 @@ class RecipesController < ApplicationController
   # PATCH/PUT /recipes/1 or /recipes/1.json
   def update
     respond_to do |format|
-      if @recipe.update(recipe_params)
+      if @recipe.update_attribute(:public, !@recipe.public)
         format.html { redirect_to recipe_url(@recipe), notice: 'Recipe was successfully updated.' }
         format.json { render :show, status: :ok, location: @recipe }
       else
-        format.html { render :edit, status: :unprocessable_entity }
+        format.html { redirect_to recipe_url(@recipe), alert: 'Recipe was not updated.' }
         format.json { render json: @recipe.errors, status: :unprocessable_entity }
       end
     end
