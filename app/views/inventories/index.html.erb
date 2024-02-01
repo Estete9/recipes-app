@@ -1,12 +1,17 @@
-
 <div>
   <strong><%= link_to "New inventory", new_inventory_path, class: "btn btn-primary mb-4" %></strong>
 
   <div id="inventories">
-    <% @inventories.each do |inventory| %>
-      <%= link_to inventory_path(inventory.id) do %>
-        <%= render inventory %>
+    <% if @inventories.any? %>
+      <% @inventories.each do |inventory| %>
+        <%= link_to inventory_path(inventory.id) do %>
+          <%= render inventory %>
+        <% end %>
       <% end %>
+    <% else %>
+      <div class="text-center py-3 bg-light border rounded">
+        <p class="text-muted mb-0">Empty list for now</p>
+      </div>
     <% end %>
   </div>
 </div>
