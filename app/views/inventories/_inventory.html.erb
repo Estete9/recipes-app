@@ -1,13 +1,13 @@
-<div id="<%= dom_id inventory %>">
-    <div>
-      <p>
+<div id="<%= dom_id inventory %>" class="d-flex inventory-item border rounded p-3 mb-3">
+    <div class="d-flex flex-column justify-content-between col-md-2">
+      <h3 class="mb-5 text-center">
         <strong><%= inventory.name %></strong>
-      </p>
+      </h3>
       <%if action_name == 'index' && can?(:destroy, inventory) %>
         <%= link_to "Remove", inventory_path(inventory.id), data: { confirm: 'Are you sure?', turbo_method: :delete }, class: "btn btn-danger" %>
       <% end %>
     </div>
-    <p><%= inventory.description %></p>
+    <p class="p-1 px-5 m-0"><%= inventory.description %></p>
 </div>
 
 <% if action_name == 'show' %>
