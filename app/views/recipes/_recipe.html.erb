@@ -35,9 +35,11 @@
 
   <button type="button" id="generate-ingredient">Generate Ingredient</button>
   
-  <% if can? :create_food, recipe%>
-    <%= link_to 'Add Ingredient', new_food_path %>
+  <% if can? :create_food, recipe %>
+    <%= link_to 'Add Ingredient', new_food_recipe_path(recipe_id: recipe.id) %>
   <% end %>
+
+  <%= render 'table' %>
 
   <%= render 'modal' %>
 

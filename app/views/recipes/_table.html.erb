@@ -1,0 +1,29 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Food</th>
+      <th scope="col">Quantity</th>
+      <th scope="col">Value</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @food_recipes.each_with_index do |food_recipe, index| %>
+      <tr>
+        <th scope="row"><%= index %></th>
+        <td><%= food_recipe.food.name %></td>
+        <td><%= food_recipe.quantity %></td>
+        <td><%= food_recipe.quantity * food_recipe.food.price %></td>
+        <td>
+          <% if can? :update, food_recipe %>
+            <button type="button">Modify</button>
+          <% end %>
+          <% if can? :destroy, food_recipe %>
+            <%= button_to "Remove", food_recipe_path(food_recipe), method: :delete, data: { confirm: 'Are you sure you want to delete this recipe food ?' } %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
