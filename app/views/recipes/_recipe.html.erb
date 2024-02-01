@@ -33,7 +33,7 @@
     <%= recipe.user_id %>
   </p>
 
-  <button type="button" id="generate-ingredient">Generate Ingredient</button>
+  <button type="button" id="generate-ingredient">Generate Shopping List</button>
   
   <% if can? :create_food, recipe %>
     <%= link_to 'Add Ingredient', new_food_recipe_path(recipe_id: recipe.id) %>
