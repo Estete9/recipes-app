@@ -26,7 +26,7 @@ class FoodRecipesController < ApplicationController
 
     respond_to do |format|
       if @food_recipe.save
-        format.html { redirect_to food_recipe_url(@food_recipe), notice: "Food recipe was successfully created." }
+        format.html { redirect_to recipe_path(id: @food_recipe.recipe_id), notice: "Food recipe was successfully created." }
         format.json { render :show, status: :created, location: @food_recipe }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -49,14 +49,14 @@ class FoodRecipesController < ApplicationController
   # end
 
   # DELETE /food_recipes/1 or /food_recipes/1.json
-  # def destroy
-  #   @food_recipe.destroy!
+  def destroy
+    @food_recipe.destroy!
 
-  #   respond_to do |format|
-  #     format.html { redirect_to food_recipes_url, notice: "Food recipe was successfully destroyed." }
-  #     format.json { head :no_content }
-  #   end
-  # end
+    respond_to do |format|
+      format.html { redirect_to food_recipes_url, notice: "Food recipe was successfully destroyed." }
+      format.json { head :no_content }
+    end
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
