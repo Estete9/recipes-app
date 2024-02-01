@@ -10,6 +10,7 @@ class RecipesController < ApplicationController
   # GET /recipes/1 or /recipes/1.json
   def show
     @food_recipes = FoodRecipe.where(recipe_id: params[:id])
+    @inventories = Inventory.where(user_id: current_user.id)
   end
 
   # GET /recipes/new

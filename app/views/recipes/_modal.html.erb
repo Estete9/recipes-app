@@ -9,6 +9,7 @@
       </div>
       <div class="modal-body">
         <h5>Choose an inventory to use</h5>
+          <!-- Replace recipe_path with the shopping list path you create -->
           <%= form_tag(recipe_path, method: :get) do %>
             <!-- Your dropdown menu -->
             <%= hidden_field_tag :recipe_id, value: params[:recipe_id] %>
