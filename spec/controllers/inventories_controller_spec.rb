@@ -43,9 +43,9 @@ RSpec.describe InventoriesController, type: :controller do
         end.to change(Inventory, :count).by(1)
       end
 
-      it 'redirects to the created inventory' do
+      it 'redirects to the inventories list' do
         post :create, params: { inventory: attributes_for(:inventory) }
-        expect(response).to redirect_to(inventory_path(Inventory.last))
+        expect(response).to redirect_to(inventories_path)
       end
     end
 
