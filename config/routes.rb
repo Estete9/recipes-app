@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  resources :food_recipes, only: [:new, :create, :destroy]
   resources :food_inventories, only: [:new, :create, :destroy]
   resources :public_recipes, only: [:index]
   resources :inventories, except: [:edit, :update]
