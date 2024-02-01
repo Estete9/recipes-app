@@ -55,6 +55,7 @@ group :development, :test do
   gem 'faker'
   gem 'rspec-rails'
 
+  # factory bots to create records for tests
   gem 'factory_bot_rails'
 
   gem 'rails-controller-testing'
@@ -79,5 +80,6 @@ end
 
 gem 'bootstrap'
 gem 'cancancan'
+gem 'jquery-rails'
 gem 'pry'
 gem 'sassc-rails'
