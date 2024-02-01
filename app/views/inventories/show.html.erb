@@ -3,7 +3,7 @@
       <strong> <h3> <%= @inventory.name %> </h3> </strong>
       <%= link_to "Add ingredient", new_food_inventory_path(inventory_id: @inventory.id), class: "btn btn-outline-success add-ingredient-show" %>
       <%if action_name == 'index' && can?(:destroy, @inventory) %>
-        <%= link_to "Remove", inventory_path(@inventory.id), data: { confirm: 'Are you sure?', turbo_method: :delete }, method: :delete, class: "btn btn-danger" %>
+        <%= link_to "Remove", inventory_path(@inventory.id), data: { confirm: 'Are you sure?', turbo_method: :delete }, class: "btn btn-danger" %>
       <% end %>
     </div>
     <% if action_name == 'index' %>
