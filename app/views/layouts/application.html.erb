@@ -13,8 +13,15 @@
   </head>
 
   <body>
+     <div class="container my-4" >
+      <div class="mb-3">
+       <% if user_signed_in? %>
+         <%= render 'layouts/nav' %>
+        <% end %>
+    </div>
     <p style="color: green" class="notice"><%= notice %></p>
-     <p style="color: red" class="alert"><%= alert %></p>
+    <p style="color: red" class="alert"><%= alert %></p>
     <%= yield %>
+  </div>
   </body>
 </html>
