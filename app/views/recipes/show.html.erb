@@ -1,4 +1,8 @@
-<%= render @recipe %>
+<% if can? :read, @recipe %>
+  <%= render @recipe %>
+<% else %>
+  <p>Sorry! You do not have the permission to view this recipe.</p>
+<% end %>
 
 <div>
   <%= link_to "Back to recipes", recipes_path %>
