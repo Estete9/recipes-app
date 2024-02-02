@@ -1,24 +1,11 @@
 class FoodRecipesController < ApplicationController
   before_action :set_food_recipe, only: %i[destroy]
 
-  # GET /food_recipes or /food_recipes.json
-  # def index
-  #   @food_recipes = FoodRecipe.all
-  # end
-
-  # GET /food_recipes/1 or /food_recipes/1.json
-  # def show
-  # end
-
   # GET /food_recipes/new
   def new
     @food_recipe = FoodRecipe.new
     @foods = current_user.foods
   end
-
-  # GET /food_recipes/1/edit
-  # def edit
-  # end
 
   # POST /food_recipes or /food_recipes.json
   def create
@@ -36,19 +23,6 @@ class FoodRecipesController < ApplicationController
       end
     end
   end
-
-  # PATCH/PUT /food_recipes/1 or /food_recipes/1.json
-  # def update
-  #   respond_to do |format|
-  #     if @food_recipe.update(food_recipe_params)
-  #       format.html { redirect_to food_recipe_url(@food_recipe), notice: "Food recipe was successfully updated." }
-  #       format.json { render :show, status: :ok, location: @food_recipe }
-  #     else
-  #       format.html { render :edit, status: :unprocessable_entity }
-  #       format.json { render json: @food_recipe.errors, status: :unprocessable_entity }
-  #     end
-  #   end
-  # end
 
   # DELETE /food_recipes/1 or /food_recipes/1.json
   def destroy
