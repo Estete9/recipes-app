@@ -1,3 +1,14 @@
 <h1>Shopping#generate_shopping_list</h1>
 <p>Find me in app/views/shopping/generate_shopping_list.html.erb</p>
-<%= @inventory.%>
+
+<h2>Inventory:</h2>
+<p>Name: <%= @inventory.name %></p>
+<p>Description: <%= @inventory.description %></p>
+<!-- Add other attributes as needed -->
+
+<h2>Foods:</h2>
+<% @foods.each do |food| %>
+  <p>Name: <%= food.name %></p>
+  <p>Description: <%= food.price %></p>
+  <!-- Add other attributes as needed -->
+<% end %>
