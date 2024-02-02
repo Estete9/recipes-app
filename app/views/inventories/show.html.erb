@@ -30,7 +30,7 @@
           <td class="align-middle"><%= food_inventory.food.name %></td>
           <td class="align-middle"><%= food_inventory.quantity_with_measurement %></td>
           <td class="align-middle">
-            <%= link_to "Remove", food_inventory_path(food_inventory.id), class: "btn btn-ountline-danger", data: { turbo_method: :delete } %>
+            <%= link_to "Remove", food_inventory_path(food_inventory.id), class: "btn btn-outline-danger rounded-5 px-4", data: { turbo_method: :delete } %>
           </td>
         </tr>
         <% end %>
@@ -43,5 +43,5 @@
   </table>
 
 <div>
-  <%= link_to "Back to inventories", inventories_path, class: "btn btn-outline-danger rounded-5 px-4 my-3" %>
+  <%= link_to "Back to inventories", inventories_path, class: "btn btn-outline-danger rounded-5 px-4" %>
 </div>
