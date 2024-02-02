@@ -13,7 +13,7 @@
       <tr>
         <th scope="row"><%= index %></th>
         <td><%= food_recipe.food.name %></td>
-        <td><%= food_recipe.food.name_with_measurement_unit %></td>
+        <td><%= food_recipe.quantity_with_measurement_unit %></td>
         <td>$<%= food_recipe.quantity * food_recipe.food.price %></td>
         <td class="d-flex align-items-center" >
           <% if can? :update, food_recipe %>
