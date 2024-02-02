@@ -1,16 +1,16 @@
 <h1>shopping List</h1>
 
 <h2>Inventory:</h2>
-<p>Name: <%= @inventory.name %></p>
-<p>Description: <%= @inventory.description %></p>
+<p>Name of inventory : <%= @inventory.name %></p>
+<p>Description:@inventoriesDescription  <%= @inventory.description %></p>
 <!-- Add other attributes as needed -->
 
 <h2>Foods:</h2>
 <% @foods.each do |food| %>
-  <p>Name: <%= food.name %></p>
+  <p>Name of food @food.name: <%= food.name %></p>
 
   <!-- Add other attributes as needed -->
 <% end %>
-<%= @recipe.name%>
+   @recipedotName<%= @recipe.name%>
 
 
