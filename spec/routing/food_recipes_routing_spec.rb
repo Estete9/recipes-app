@@ -2,7 +2,6 @@ require 'rails_helper'
 
 RSpec.describe FoodRecipesController, type: :routing do
   describe 'routing' do
-
     it 'routes to #new' do
       expect(get: '/food_recipes/new').to route_to('food_recipes#new')
     end

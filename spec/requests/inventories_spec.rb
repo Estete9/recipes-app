@@ -17,7 +17,7 @@ RSpec.describe '/inventories', type: :request do
   # Inventory. As you add validations to Inventory, be sure to
   # adjust the attributes here as well.
   let(:user) { create(:user) }
-  let(:inventory) { create(:inventory, user: user) }
+  let(:inventory) { create(:inventory, user:) }
 
   before do
     sign_in user

@@ -5,6 +5,6 @@ RSpec.configure do |config|
     user = create(:user) # Create a user with necessary roles
     assign(:current_user, user)
     @ability = Ability.new(user)
-    allow(view).to receive(:can?).and_return { |*args| @ability.can?(*args) }
+    allow(view).to(receive(:can?).and_return { |*args| @ability.can?(*args) })
   end
 end

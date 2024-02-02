@@ -10,7 +10,7 @@ RSpec.describe 'recipes/index', type: :view do
                cooking_time: 'Cooking Time',
                description: 'MyText',
                public: true,
-               user: user
+               user:
              ),
              Recipe.create!(
                name: 'Name',
@@ -18,7 +18,7 @@ RSpec.describe 'recipes/index', type: :view do
                cooking_time: 'Cooking Time',
                description: 'MyText',
                public: true,
-               user: user
+               user:
              )
            ])
   end

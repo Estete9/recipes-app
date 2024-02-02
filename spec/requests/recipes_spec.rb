@@ -17,7 +17,7 @@ RSpec.describe 'Recipes', type: :request do
   # Recipe. As you add validations to Recipe, be sure to
   # adjust the attributes here as well.
   let(:user) { create(:user) }
-  let(:recipe) { create(:recipe, user: user) }
+  let(:recipe) { create(:recipe, user:) }
 
   before do
     sign_in user

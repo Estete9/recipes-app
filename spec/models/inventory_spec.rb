@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Inventory, type: :model do
-   it 'is valid with valid attributes' do
+  it 'is valid with valid attributes' do
     inventory = build(:inventory)
     expect(inventory).to be_valid
   end
