@@ -3,7 +3,7 @@
 
   <div id="inventories">
     <% if @inventories.any? %>
-      <% @inventories.each do |inventory| %>
+      <% current_user.inventories.each do |inventory| %>
         <%= link_to inventory_path(inventory.id) do %>
           <%= render inventory %>
         <% end %>
