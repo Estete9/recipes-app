@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe '/inventories', type: :request do
+RSpec.describe InventoriesController, type: :controller do
   let(:user) { create(:user) }
   let(:inventory) { create(:inventory, user:) }
 
@@ -8,43 +8,43 @@ RSpec.describe '/inventories', type: :request do
     sign_in user
   end
 
-  describe 'GET /inventories' do
-    it 'renders the index template' do
-      get inventories_path
-      expect(response).to render_template(:index)
+  describe 'GET #index' do
+    it 'returns a success response' do
+      get :index
+      expect(response).to be_successful
     end
 
     # Add more tests as needed
   end
 
-  describe 'GET /inventories/:id' do
-    it 'renders the show template' do
-      get inventory_path(inventory)
-      expect(response).to render_template(:show)
+  describe 'GET #show' do
+    it 'returns a success response' do
+      get :show, params: { id: inventory.id }
+      expect(response).to be_successful
     end
 
     # Add more tests as needed
   end
 
-  describe 'GET /inventories/new' do
-    it 'renders the new template' do
-      get new_inventory_path
-      expect(response).to render_template(:new)
+  describe 'GET #new' do
+    it 'returns a success response' do
+      get :new
+      expect(response).to be_successful
     end
 
     # Add more tests as needed
   end
 
-  describe 'POST /inventories' do
+  describe 'POST #create' do
     context 'with valid parameters' do
       it 'creates a new inventory' do
         expect do
-          post inventories_path, params: { inventory: attributes_for(:inventory) }
+          post :create, params: { inventory: attributes_for(:inventory) }
         end.to change(Inventory, :count).by(1)
       end
 
-      it 'redirects to the created inventory' do
-        post inventories_path, params: { inventory: attributes_for(:inventory) }
+      it 'redirects to the inventories list' do
+        post :create, params: { inventory: attributes_for(:inventory) }
         expect(response).to redirect_to(inventories_path)
       end
     end
@@ -52,27 +52,27 @@ RSpec.describe '/inventories', type: :request do
     context 'with invalid parameters' do
       it 'does not create a new inventory' do
         expect do
-          post inventories_path, params: { inventory: { name: nil } }
+          post :create, params: { inventory: { name: nil } }
         end.to_not change(Inventory, :count)
       end
 
       it 'renders the new template' do
-        post inventories_path, params: { inventory: { name: nil } }
+        post :create, params: { inventory: { name: nil } }
         expect(response).to render_template(:new)
       end
     end
   end
 
-  describe 'DELETE /inventories/:id' do
+  describe 'DELETE #destroy' do
     it 'destroys the requested inventory' do
       inventory_to_destroy = create(:inventory, user:)
       expect do
-        delete inventory_path(inventory_to_destroy)
+        delete :destroy, params: { id: inventory_to_destroy.id }
       end.to change(Inventory, :count).by(-1)
     end
 
     it 'redirects to the inventories list' do
-      delete inventory_path(inventory)
+      delete :destroy, params: { id: inventory.id }
       expect(response).to redirect_to(inventories_path)
     end
   end

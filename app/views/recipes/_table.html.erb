@@ -1,4 +1,4 @@
-<table class="table table-striped">
+<table class="table table-striped my-3">
   <thead>
     <tr>
       <th scope="col">#</th>
@@ -15,12 +15,12 @@
         <td><%= food_recipe.food.name %></td>
         <td><%= food_recipe.food.name_with_measurement_unit %></td>
         <td>$<%= food_recipe.quantity * food_recipe.food.price %></td>
-        <td>
+        <td class="d-flex align-items-center" >
           <% if can? :update, food_recipe %>
-            <button type="button">Modify</button>
+            <button type="button" class="btn btn-primary mx-1">Modify</button>
           <% end %>
           <% if can? :destroy, food_recipe %>
-            <%= button_to "Remove", food_recipe_path(food_recipe), method: :delete, data: { confirm: 'Are you sure you want to delete this recipe food ?' } %>
+            <%= button_to "Remove", food_recipe_path(food_recipe), method: :delete, data: { confirm: 'Are you sure you want to delete this recipe food ?' }, class: 'btn btn-danger mx-1' %>
           <% end %>
         </td>
       </tr>
