@@ -1,4 +1,4 @@
-<div class="mx-auto" style="width: 50%;">
+<div style="max-width: 400px; margin: 0 auto;" class="mx-auto mb-4 p-3 bg-light border rounded">
   <%= form_with(model: inventory) do |form| %>
     <% if inventory.errors.any? %>
       <div class="alert alert-danger">
@@ -22,8 +22,8 @@
       <%= form.text_area :description, class: "form-control fixed-height-textarea" %>
     </div>
 
-    <div class="mb-3">
-      <%= form.submit class: "btn btn-primary" %>
+    <div class="mb-3 text-center">
+      <%= form.submit class: "btn btn-primary w-100" %>
     </div>
   <% end %>
 </div>
