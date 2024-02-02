@@ -10,7 +10,7 @@
       <div class="modal-body">
         <h5>Choose an inventory to use</h5>
           <!-- Replace recipe_path with the shopping list path you create -->
-          <%= form_tag(recipe_path, method: :get) do %>
+            <%= form_tag(generate_shopping_list_path, method: :get) do %>
             <!-- Your dropdown menu -->
             <%= hidden_field_tag :recipe_id, value: params[:recipe_id] %>
             <%= select_tag 'user_id', options_for_select(@inventories.collect{ |i| [i.name, i.id] }), { prompt: "Select an Inventory" } %>
