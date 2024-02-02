@@ -20,7 +20,7 @@
       </div>
 
       <div class='form-group mb-3'>
-        <%= form.collection_select(:food_id, foods, :id, :name, { prompt: "Select a Food" }, class: 'form-control') %>
+        <%= form.collection_select(:food_id, foods, :id, :name, { prompt: "Select a Food" }, class: 'form-control', id: 'recipe-food-select') %>
       </div>
 
       <div class='form-group mb-3'>

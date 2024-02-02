@@ -12,7 +12,6 @@ class RecipesController < ApplicationController
     @recipe = Recipe.find(params[:id])
     @food_recipes = FoodRecipe.where(recipe_id: params[:id])
     @inventories = Inventory.where(user_id: current_user.id)
-
   end
 
   # GET /recipes/new

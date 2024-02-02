@@ -13,6 +13,6 @@ class Recipe < ApplicationRecord
   end
 
   def food_quantity(food)
-    food_recipes.find_by(food: food).quantity
+    food_recipes.find_by(food:).quantity
   end
 end
