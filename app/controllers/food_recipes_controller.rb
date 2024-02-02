@@ -28,9 +28,12 @@ class FoodRecipesController < ApplicationController
   def destroy
     @food_recipe.destroy!
 
-    respond_to do |format|
-      format.html { redirect_to food_recipes_url, notice: 'Food recipe was successfully destroyed.' }
-      format.json { head :no_content }
+    if @food_recipe.destroy
+      flash[:notice] = 'Food removed successfully.'
+      redirect_to recipe_path(@food_recipe.recipe_id)
+    else
+      flash[:alert] = 'Failed to remove food.'
+      redirect_back(fallback_location: recipe_path(@food_recipe.recipe_id))  # or any other fallback location
     end
   end
 

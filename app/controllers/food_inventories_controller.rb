@@ -17,9 +17,13 @@ class FoodInventoriesController < ApplicationController
   def destroy
     @food_inventory = FoodInventory.find(params[:id])
 
-    @food_inventory.destroy!
-
-    redirect_to inventory_path(@food_inventory.inventory_id)
+    if @food_inventory.destroy
+      flash[:notice] = 'Food removed successfully.'
+      redirect_to inventory_path(@food_inventory.inventory_id)
+    else
+      flash[:alert] = 'Failed to remove food.'
+      redirect_back(fallback_location: inventory_path(@food_inventory.inventory_id))  # or any other fallback location
+    end
   end
 
   private

@@ -35,9 +35,12 @@ class InventoriesController < ApplicationController
   def destroy
     @inventory.destroy!
 
-    respond_to do |format|
-      format.html { redirect_to inventories_url, notice: 'Inventory was successfully destroyed.' }
-      format.json { head :no_content }
+    if @inventory.destroy
+      flash[:notice] = 'Food removed successfully.'
+      redirect_to inventories_path
+    else
+      flash[:alert] = 'Failed to remove food.'
+      redirect_back(fallback_location: inventories_path)
     end
   end
 

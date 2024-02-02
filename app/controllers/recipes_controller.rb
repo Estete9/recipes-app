@@ -10,7 +10,7 @@ class RecipesController < ApplicationController
   # GET /recipes/1 or /recipes/1.json
   def show
     @food_recipes = FoodRecipe.includes(:food, :recipe).where(recipe_id: params[:id])
-    @inventories = Inventory.where(user_id: current_user.id)
+    @inventories = recipe.where(user_id: current_user.id)
   end
 
   # GET /recipes/new
@@ -53,9 +53,12 @@ class RecipesController < ApplicationController
     @recipe.food_recipes.destroy_all
     @recipe.destroy
 
-    respond_to do |format|
-      format.html { redirect_to recipes_url, notice: 'Recipe was successfully destroyed.' }
-      format.json { head :no_content }
+     if @recipe.destroy
+      flash[:notice] = 'Food removed successfully.'
+      redirect_to recipes_path
+    else
+      flash[:alert] = 'Failed to remove food.'
+      redirect_back(fallback_location: recipes_path)
     end
   end
 
