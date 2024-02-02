@@ -1,14 +1,15 @@
 <!-- Previous content remains unchanged -->
 
 <div class="row mt-3">
-  <div class="col-md-12">
+<div class="col-md-6">
+<p>Total Kinds of Foods to Buy: <%= @total_quantity %></p>
+<p>Total Money to Spend: <%= number_to_currency(@total_price) %></p>
+</div>
+  <div class="col-md-6">
     <p><strong>Recipe:</strong> <%= link_to @recipe.name, recipe_path(@recipe) %></p>
     <p><strong>Inventory:</strong> <%= link_to @inventory.name, inventory_path(@inventory) %></p>
   </div>
 </div>
-
-<p>Total Quantity: <%= @total_quantity %></p>
-<p>Total Money to Spend: <%= number_to_currency(@total_price) %></p>
 
 <div class="row mt-4">
   <div class="col-md-12">
@@ -26,16 +27,11 @@
           <tr>
             <td><%= missing_food.name %></td>
             <td><%= @recipe.food_quantity(missing_food) %></td>
-            <td>$<%= missing_food.price %></td>
+            <td>$<%= (missing_food.price)*( @recipe.food_quantity(missing_food)) %></td>
           </tr>
         <% end %>
       </tbody>
     </table>
   </div>
 </div>
-
-<div class="row mt-3">
-  <div class="col-md-12">
-    <p>Total Value of Missing Foods: $<%= @total_price %></p>
-  </div>
 </div>

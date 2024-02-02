@@ -14,11 +14,9 @@ class ShoppingController < ApplicationController
     @missing_foods = @food_recipe - @food_inventory
 
     # Calculate the total quantity and total price
-    @total_quantity = @missing_foods.sum { |food| @recipe.food_quantity(food) }
+    @total_quantity = @missing_foods.size
     @total_price = @missing_foods.sum { |food| food.price * @recipe.food_quantity(food) }
 
     render 'generate_shopping_list'
   end
-
-  # ...
 end
