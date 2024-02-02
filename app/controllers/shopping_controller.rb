@@ -7,7 +7,6 @@ def generate_shopping_list
   @recipe = Recipe.find_by(id: recipe_id)
 
 
-  
 
   # You can use inventory_id and recipe_id as needed in your view or business logic
   @foods = @inventory.foods
