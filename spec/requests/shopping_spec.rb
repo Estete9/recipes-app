@@ -6,11 +6,11 @@ RSpec.describe 'Shopping', type: :request do
       # Create necessary data using FactoryBot
       user = create(:user)
       recipe = create(:recipe)
-      inventory = create(:inventory, user: user)
-      food = create(:food, user: user) # Add this line to create a food item
-# Assuming you have associated foods and food recipes in the database
-      food_recipe = create(:food_recipe, recipe: recipe, food: food)
-      food_inventory = create(:food_inventory, inventory: inventory, food: food)
+      inventory = create(:inventory, user:)
+      food = create(:food, user:) # Add this line to create a food item
+      # Assuming you have associated foods and food recipes in the database
+      create(:food_recipe, recipe:, food:)
+      create(:food_inventory, inventory:, food:)
 
       # Sign in the user
       sign_in user
@@ -20,7 +20,7 @@ RSpec.describe 'Shopping', type: :request do
 
       # Expect a successful response (HTTP status 200)
       expect(response).to have_http_status(:success)
-# You can add more expectations based on what you render in the action
+      # You can add more expectations based on what you render in the action
       # For example, if you render a template, you can check if the template is rendered
       expect(response).to render_template(:generate_shopping_list)
     end

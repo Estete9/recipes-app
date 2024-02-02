@@ -1,14 +1,19 @@
-<div id="<%= dom_id recipe %>">
-  <h5>
-    <%= recipe.name %>
-  </h5>
+<div id="<%= dom_id recipe %>" class='shadow mx-3 row p-3 mb-4'>
+  <div class="col-sm-12 col-md-4 col-lg-4">
+    <%= link_to recipe_path(recipe) do %>
+      <h5 class="text-dark mb-5">
+        <%= recipe.name %>
+      </h5>
+    <% end %>
+    <% if can? :destroy, recipe %>
+      <%= button_to "Remove", recipe_path(recipe), method: :delete, data: { confirm: 'Are you sure you want to delete this recipe ?' }, class: 'btn btn-danger' %>
+    <% end %>
+  </div>
 
-  <% if can? :destroy, recipe %>
-    <%= button_to "Remove", recipe_path(recipe), method: :delete, data: { confirm: 'Are you sure you want to delete this recipe ?' } %>
-  <% end %>
-
-  <p>
-    <%= recipe.description %>
-  </p>
+  <div class="col-sm-12 col-md-8 col-lg-6">
+    <p class='text-secondary'>
+      <%= recipe.description %>
+    </p>
+  </div>
 
 </div>

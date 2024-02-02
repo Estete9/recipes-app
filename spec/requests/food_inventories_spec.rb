@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "FoodInventories", type: :request do
+RSpec.describe 'FoodInventories', type: :request do
   let(:user) { create(:user) }
   let(:inventory) { create(:inventory, user:) }
   let(:food) { create(:food, user:) }

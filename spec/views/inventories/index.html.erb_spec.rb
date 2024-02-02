@@ -15,9 +15,9 @@ RSpec.describe 'inventories/index', type: :view do
     ability.can(:destroy, Inventory)
 
     assign(:inventories, [
-      create(:inventory, name: 'Inventory 1', description: 'Description 1', user: user),
-      create(:inventory, name: 'Inventory 2', description: 'Description 2', user: user)
-    ])
+             create(:inventory, name: 'Inventory 1', description: 'Description 1', user:),
+             create(:inventory, name: 'Inventory 2', description: 'Description 2', user:)
+           ])
 
     sign_in user
   end
