@@ -1,12 +1,11 @@
-<h1>Recipes</h1>
+<h1 class="text-center text-secondary mb-4">Recipes</h1>
 
 <div id="recipes">
   <% @recipes.each do |recipe| %>
     <%= render partial: 'recipeindex', locals: { recipe: recipe } %>
-    <p>
-      <%= link_to "Show this recipe", recipe %>
-    </p>
   <% end %>
 </div>
 
-<%= link_to "New recipe", new_recipe_path %>
+<div class="d-flex align-items-center justify-content-center">
+  <%= link_to "New recipe", new_recipe_path, :class => "btn btn-outline-danger rounded-5 px-4 my-3" %>
+</div>
