@@ -1,16 +1,57 @@
-<h1>shopping List</h1>
+<h1 class="mt-3">Shopping List</h1>
 
-<h2>Inventory:</h2>
-<p>Name of inventory : <%= @inventory.name %></p>
-<p>Description:@inventoriesDescription  <%= @inventory.description %></p>
-<!-- Add other attributes as needed -->
+<div class="row mt-4">
+  <div class="col-md-6">
+    <h2>Inventory:</h2>
+    <p><strong>Name of inventory:</strong> <%= @inventory.name %></p>
+    <p><strong>Description:</strong> <%= @inventory.description %></p>
+    <!-- Add other attributes as needed -->
+  </div>
 
-<h2>Foods:</h2>
-<% @foods.each do |food| %>
-  <p>Name of food @food.name: <%= food.name %></p>
+  <div class="col-md-6">
+    <h2>Foods:</h2>
+    <% @foods.each do |food| %>
+      <p><strong>Name of food:</strong> <%= food.name %></p>
+      <!-- Add other attributes as needed -->
+    <% end %>
+  </div>
+</div>
 
-  <!-- Add other attributes as needed -->
-<% end %>
-   @recipedotName<%= @recipe.name%>
+<div class="row mt-4">
+  <div class="col-md-12">
+    <h2>Missing Foods:</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Quantity</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @missing_foods.each do |missing_food| %>
+          <tr>
+            <td><%= missing_food.name %></td>
+            <td>2</td> <!-- You'll need to replace this with the actual quantity -->
+            <td>$<%= missing_food.price %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
 
+<div class="row mt-3">
+  <div class="col-md-12">
+    <p>Total Value of Missing Foods: $<%= @missing_foods.sum(&:price) %></p>
+  </div>
+</div>
 
+<div class="row mt-3">
+  <div class="col-md-12">
+    <p><strong>Recipe:</strong> <%= link_to @recipe.name, recipe_path(@recipe) %></p>
+  </div>
+  <div class="col-md-12">
+    <p><strong>Inventory:</strong> <%= link_to @inventory.name, inventory_path(@inventory) %></p>
+  </div>
+</div>
