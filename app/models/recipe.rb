@@ -9,4 +9,8 @@ class Recipe < ApplicationRecord
     end
     total
   end
+
+  def food_quantity(food)
+    food_recipes.find_by(food: food).quantity
+  end
 end

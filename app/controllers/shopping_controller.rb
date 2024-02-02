@@ -1,20 +1,24 @@
 class ShoppingController < ApplicationController
+  # ...
+
   def generate_shopping_list
     inventory_id = params[:user_id]
     recipe_id = params[:recipe_id]
-
     @inventory = Inventory.find(inventory_id)
     @recipe = Recipe.find_by(id: recipe_id)
 
-    # You can use inventory_id and recipe_id as needed in your view or business logic
-    @foods = @inventory.foods
-    @food_of_recipe = @recipe.foods
-    @food_of_inventory = @inventory.foods
+    @food_inventory = @inventory.foods
+    @food_recipe = @recipe.foods
 
-    # Find the missing foods for the recipe
-    @missing_foods = @food_of_recipe - @foods
+    # Find the missing foods
+    @missing_foods = @food_recipe - @food_inventory
 
-    # Render the view for the shopping list
+    # Calculate the total quantity and total price
+    @total_quantity = @missing_foods.sum { |food| @recipe.food_quantity(food) }
+    @total_price = @missing_foods.sum { |food| food.price * @recipe.food_quantity(food) }
+
     render 'generate_shopping_list'
   end
+
+  # ...
 end
