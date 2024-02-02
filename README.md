@@ -144,15 +144,15 @@ Example command:
 
 ## 👥 Authors <a name="authors"></a>
 
-👤 **Zabih noori**
+👤 **Zabih Noori**
 
 - GitHub: [Zabih noori ](https://github.com/ZabihullahNooriWardak)
 
-👤 **Esteban**
+👤 **Esteban Palacios**
 
 - GitHub: [Esteban ](https://github.com/Estete9)
  
- 👤 **Esteban**
+ 👤 **Timothy Njoroge**
 
 - GitHub: [Timothy Njoroge](https://github.com/simplegoose)
 
