@@ -17,4 +17,6 @@ test:
 
 production:
   <<: *default
-  database: food-recipe-app
+  database: recipe_app
+  username: recipe_app
+  password: <%= ENV["BLOG_DATABASE_PASSWORD"] %>
