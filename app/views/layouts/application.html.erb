@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Deviselearning</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= javascript_include_tag 'rails-ujs', 'data-turbo-frame': 'false' %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag 'register_new' %>
+     <%= stylesheet_link_tag 'session_new' %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+     <div class="container my-4" >
+      <div class="mb-3">
+       <% if user_signed_in? %>
+         <%= render 'layouts/nav' %>
+        <% end %>
+    </div>
+    <p style="color: green" class="notice"><%= notice %></p>
+    <p style="color: red" class="alert"><%= alert %></p>
+    <%= yield %>
+  </div>
+  </body>
+</html>

@@ -1,0 +1,47 @@
+<div class="inventory-item-header">
+    <div class="inventory-header-show d-flex flex-column justify-content-between align-items-center">
+      <strong> <h3> <%= @inventory.name %> </h3> </strong>
+      <%= link_to "Add ingredient", new_food_inventory_path(inventory_id: @inventory.id), class: "btn btn-outline-success add-ingredient-show add-ingredient-btn" %>
+      <%if action_name == 'index' && can?(:destroy, @inventory) %>
+        <%= link_to "Remove", inventory_path(@inventory.id), data: { confirm: 'Are you sure?', turbo_method: :delete }, class: "btn btn-danger" %>
+      <% end %>
+    </div>
+    <% if action_name == 'index' %>
+      <p class="Inventory-description">
+        <%= @inventory.description ? @inventory.description : 'No description available' %>
+      </p>
+    <% end %>
+  </div>
+
+  <hr>
+  
+  <table class="table table-striped table-bordered">
+    <thead class="inventories-table-header">
+      <tr>
+        <th>Food</th>
+        <th>Quantity</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <% if @food_inventories.any? %>
+      <tbody>
+      <% @food_inventories.each do |food_inventory| %>
+        <tr>
+          <td class="align-middle"><%= food_inventory.food.name %></td>
+          <td class="align-middle"><%= food_inventory.quantity_with_measurement %></td>
+          <td class="align-middle">
+            <%= link_to "Remove", food_inventory_path(food_inventory.id), class: "btn btn-outline-danger rounded-5 px-4", data: { turbo_method: :delete } %>
+          </td>
+        </tr>
+        <% end %>
+      </tbody>
+      <% else %>
+        <tr>
+          <td colspan="3">Empty list for now</td>
+        </tr>
+      <% end %>
+  </table>
+
+<div>
+  <%= link_to "Back to inventories", inventories_path, class: "btn btn-outline-danger rounded-5 px-4" %>
+</div>

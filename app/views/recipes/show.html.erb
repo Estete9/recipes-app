@@ -1,0 +1,9 @@
+<% if can? :read, @recipe %>
+  <%= render @recipe %>
+<% else %>
+  <p class="text-center text-danger my-4">Sorry! You do not have the permission to view this recipe.</p>
+<% end %>
+
+<div class="d-flex align-items-center justify-content-center">
+  <%= link_to "Back to Recipes", recipes_path, :class => "btn btn-outline-danger rounded-5 px-4 my-3" %>
+</div>

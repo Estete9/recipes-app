@@ -1,0 +1,7 @@
+<h1>Welcome to food recipe app</h1>
+<% if user_signed_in? %>
+<p>Hello, <%= current_user.email.split("@").first.gsub(/[^a-zA-Z]/, '') %> !</p>
+<% else %>
+<p><%= link_to 'Sign up',new_user_registration_path %> or <%= link_to 'Sign in', new_user_session_path%></p>
+
+<% end %>

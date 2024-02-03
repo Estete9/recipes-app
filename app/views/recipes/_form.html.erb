@@ -1,0 +1,46 @@
+<div class="px-2 m-auto" style="max-width: 450px;">
+  <div class="shadow rounded px-3 py-3">
+    <%= form_with(model: recipe) do |form| %>
+      <% if recipe.errors.any? %>
+        <div style="color: red">
+          <h2><%= pluralize(recipe.errors.count, "error") %> prohibited this recipe from being saved:</h2>
+
+          <ul>
+            <% recipe.errors.each do |error| %>
+              <li><%= error.full_message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="form-group mb-3">
+        <%= form.label :name, :class => "mb-2" %>
+        <%= form.text_field :name, placeholder: 'Example: Chicken curry', :class => "form-control" %>
+      </div>
+
+      <div class="form-group mb-3">
+        <%= form.label :preparation_time, :class => "mb-2" %>
+        <%= form.text_field :preparation_time, placeholder: 'Example: 1hr 30mins', :class => "form-control" %>
+      </div>
+
+      <div class="form-group mb-3">
+        <%= form.label :cooking_time, :class => "mb-2" %>
+        <%= form.text_field :cooking_time, placeholder: 'Example: 1hr 30mins', :class => "form-control" %>
+      </div>
+
+      <div class="form-group mb-3">
+        <%= form.label :description, :class => "mb-2" %>
+        <%= form.text_area :description, placeholder: 'Enter your description here', :class => "form-control" %>
+      </div>
+
+      <div class="form-check mb-3">
+        <%= form.label :public %>
+        <%= form.check_box :public, :class => "form-check-input" %>
+      </div>
+
+      <div class="form-group mb-3">
+        <%= form.submit 'Save', :class => "btn btn-primary" %>
+      </div>
+    <% end %>
+  </div>
+</div>

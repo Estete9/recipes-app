@@ -1,0 +1,31 @@
+<div class="px-2 m-auto" style="max-width: 450px;">
+  <div class="shadow rounded px-3 py-3">
+    <%= form_with(model: food_recipe) do |form| %>
+      <% if food_recipe.errors.any? %>
+        <div>
+          <h5 class="text-danger"><%= pluralize(food_recipe.errors.count, "error") %> prohibited this food_recipe from being saved:</h5>
+
+          <ul class='list-group'>
+            <% food_recipe.errors.each do |error| %>
+              <li class='list-group-item'><%= error.full_message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <%= form.hidden_field :recipe_id, value: params[:recipe_id] %>
+      <div class='form-group mb-3'>
+        <%= form.label :quantity, class: 'mb-2' %>
+        <%= form.number_field :quantity, min: 1, class: 'form-control' %>
+      </div>
+
+      <div class='form-group mb-3'>
+        <%= form.collection_select(:food_id, foods, :id, :name, { prompt: "Select a Food" }, class: 'form-control', id: 'recipe-food-select') %>
+      </div>
+
+      <div class='form-group mb-3'>
+        <%= form.submit 'Save', class: 'btn btn-primary' %>
+      </div>
+    <% end %>
+  </div>
+</div>

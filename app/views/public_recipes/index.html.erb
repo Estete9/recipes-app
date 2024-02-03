@@ -1,0 +1,18 @@
+<h2 class="mt-5 mb-3 text-center">Public Recipes</h2>
+<ul class="list-group">
+  <% @public_recipes.each do |recipe| %>
+    <li class="list-group-item">
+      <div class="row p-3 align-items-center">
+        <div class="col-8">
+       <strong>Food name</strong> : <%= recipe.name %> 
+        <p><strong>By</strong>: <%= recipe.user.email.split("@").first.gsub(/[^a-zA-Z]/, '') %></p>
+          <%= link_to 'Details', recipe_path(recipe), class: 'btn btn-secondary btn-sm' %>
+        </div>
+          <div class="col-4">
+          <p><strong>Total food items: </strong><%=recipe.food_recipes.count %></p>
+          <p><strong>Total Price: </strong>$<%=recipe.total_price %></p>
+        </div>
+      </div>
+    </li>
+  <% end %>
+</ul>
