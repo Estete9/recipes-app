@@ -1,7 +1,7 @@
 databases:
   - name: MyRecipeApp
     databaseName: recipe_app
-    user: postgres
+    user: MyRecipeApp
     plan: free
 
 services:
