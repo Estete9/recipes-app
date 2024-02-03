@@ -49,7 +49,7 @@ RSpec.describe 'FoodRecipes', type: :request do
 
     it 'redirects to the recipe show page' do
       delete food_recipe_path(food_recipe)
-      expect(response).to redirect_to(food_recipes_url)
+      expect(response).to redirect_to(recipe_path(food_recipe.recipe_id))
     end
   end
 end
