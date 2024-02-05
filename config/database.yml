@@ -5,7 +5,7 @@ default: &default
   timeout: 5000
   username: postgres
   password: 'BrunoyKino2019@'
-  host: localhost
+  host: postgres://my_recipe_app:OYo2kC8vatjQCDCScl8r2moXIHrVtl5w@dpg-cmv82k0cmk4c73ag9qtg-a.oregon-postgres.render.com/recipe_app_xqpf
 
 development:
   <<: *default
