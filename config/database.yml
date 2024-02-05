@@ -3,9 +3,7 @@ default: &default
   encoding: unicode
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   timeout: 5000
-  username: postgres
-  password: 'BrunoyKino2019@'
-  host: postgres://my_recipe_app:OYo2kC8vatjQCDCScl8r2moXIHrVtl5w@dpg-cmv82k0cmk4c73ag9qtg-a.oregon-postgres.render.com/recipe_app_xqpf
+  host: <%= ENV["RECIPE_APP_DATABASE_HOST"] %>
 
 development:
   <<: *default
